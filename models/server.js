@@ -37,14 +37,14 @@ class Server {
             img_peliculas: '/api_v2/imgPeliculas'
         }
         
+        //Middlewares
+        this.middlewares();
+        
         // Rutas de la aplicación
         // this.app.get("/", (req, res) => {
         //     res.send("Hello World!");
         // })
         this.routes();
-
-        //Middlewares
-        this.middlewares();
     }
 
     // async conectarDBMySql(){
