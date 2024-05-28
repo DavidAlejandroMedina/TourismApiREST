@@ -89,17 +89,7 @@ const actualizarHeroe = async (req, res = response) => {
     const data  = req.body;
     // console.log(data)
 
-    try {
-        if (data.nombre) {
-            const heroeDB = await HeroeMongo.findOne({ nombre: data.nombre });
-
-            if (heroeDB) {
-            return res.status(400).json({
-                msg: `El Heroe ${data.nombre}, ya existe`,
-            });
-            }
-        }
-        
+    try {        
         const heroe = await HeroeMongo.findByIdAndUpdate(id, data, {
             new: true,
         });
