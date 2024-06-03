@@ -1,4 +1,4 @@
-const { response, urlencoded } = require("express");
+const { response } = require("express");
 const { ImagenMongo, ImgHeroeMongo, ImgPeliculaMongo } = require("../models");
 
 const { isValidObjectId } = require("../helpers/mongo-verify");
