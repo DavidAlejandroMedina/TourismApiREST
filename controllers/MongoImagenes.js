@@ -41,14 +41,14 @@ const crearImagen = async (req, res = response) => {
     //console.log("BODY INICIO",body);
     
     try {
-        const imagenDB = await ImagenMongo.findOne({ url: body.url });
+        const imagenDB = await ImagenMongo.findOne({ descripcion: body.descripcion, url: body.url });
 
         if (imagenDB) {
             return res
             //.status(400)
             .json({
                 Ok: false,
-                msg: `La url de Imagen ${body.url}, ya existe`,
+                msg: `La url con esa descripción, ya existe`,
             });
         }
 
@@ -72,13 +72,13 @@ const actualizarImagen = async (req, res = response) => {
 
     try {
         if (data.url) {
-            const imagenDB = await ImagenMongo.findOne({ url: data.url });
+            const imagenDB = await ImagenMongo.findOne({ descripcion: body.descripcion, url: data.url });
 
             // console.log("IMAGEN_DB",imagenDB);
 
             if (imagenDB) {
             return res.status(400).json({
-                msg: `La url de imagen ${data.url}, ya existe`,
+                msg: `La url con esa descripción, ya existe`,
             });
             }
         }
