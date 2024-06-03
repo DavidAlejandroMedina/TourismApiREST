@@ -70,16 +70,6 @@ const actualizarPelicula = async (req, res = response) => {
     const data = req.body;
 
     try {
-        if (data.titulo) {
-            const peliculaDB = await PeliculaMongo.findOne({ titulo: data.titulo });
-
-            if (peliculaDB) {
-            return res.status(400).json({
-                msg: `La película ${data.titulo}, ya existe`,
-            });
-            }
-        }
-
         const pelicula = await PeliculaMongo.findByIdAndUpdate(id, data, { new: true });
 
         res.json({ Ok: true, msg: 'Película Actualizada',resp: pelicula });

@@ -46,7 +46,7 @@ const crearImgPelicula = async (req, res = response) => {
 
         if (imagenDB) {
             return res.status(400).json({
-                msg: `La imagen, ya existe para este Heroe`,
+                msg: `La imagen, ya existe para esta pelcula`,
             });
         }
 

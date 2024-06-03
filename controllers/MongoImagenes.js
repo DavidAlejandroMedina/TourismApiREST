@@ -68,12 +68,15 @@ const crearImagen = async (req, res = response) => {
 const actualizarImagen = async (req, res = response) => {
     const { id } = req.params;
     const data = req.body;
+    // console.log("DATA",data)
 
     try {
         if (data.url) {
             const imagenDB = await ImagenMongo.findOne({ url: data.url });
 
-            if (imagenDB._id != data._id && imagenDB.url == data.url) {
+            // console.log("IMAGEN_DB",imagenDB);
+
+            if (imagenDB) {
             return res.status(400).json({
                 msg: `La url de imagen ${data.url}, ya existe`,
             });
@@ -81,6 +84,8 @@ const actualizarImagen = async (req, res = response) => {
         }
 
         const imagen = await ImagenMongo.findByIdAndUpdate(id, data, { new: true });
+
+        console.log("IMAGEN",imagen);
 
         res.json({ Ok: true, msg: 'Imagen Actualizada',resp: imagen });
     } catch (error) {
