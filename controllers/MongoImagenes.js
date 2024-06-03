@@ -1,4 +1,4 @@
-const { response } = require("express");
+const { response, urlencoded } = require("express");
 const { ImagenMongo, ImgHeroeMongo, ImgPeliculaMongo } = require("../models");
 
 const { isValidObjectId } = require("../helpers/mongo-verify");
@@ -41,14 +41,14 @@ const crearImagen = async (req, res = response) => {
     //console.log("BODY INICIO",body);
     
     try {
-        const imagenDB = await ImagenMongo.findOne({ descripcion: body.descripcion });
+        const imagenDB = await ImagenMongo.findOne({ url: body.url });
 
         if (imagenDB) {
             return res
             //.status(400)
             .json({
                 Ok: false,
-                msg: `La descripción de Imagen ${body.descripcion}, ya existe`,
+                msg: `La url de Imagen ${body.url}, ya existe`,
             });
         }
 
@@ -70,12 +70,12 @@ const actualizarImagen = async (req, res = response) => {
     const data = req.body;
 
     try {
-        if (data.descripcion) {
-            const imagenDB = await ImagenMongo.findOne({ descripcion: data.descripcion });
+        if (data.url) {
+            const imagenDB = await ImagenMongo.findOne({ url: data.url });
 
-            if (imagenDB) {
+            if (imagenDB._id != data._id && imagenDB.url == data.url) {
             return res.status(400).json({
-                msg: `La decripción de imagen ${data.descripcion}, ya existe`,
+                msg: `La url de imagen ${data.url}, ya existe`,
             });
             }
         }
