@@ -72,7 +72,7 @@ const actualizarImagen = async (req, res = response) => {
 
     try {
         if (data.url) {
-            const imagenDB = await ImagenMongo.findOne({ descripcion: body.descripcion, url: data.url });
+            const imagenDB = await ImagenMongo.findOne({ descripcion: data.descripcion, url: data.url });
 
             // console.log("IMAGEN_DB",imagenDB);
 
