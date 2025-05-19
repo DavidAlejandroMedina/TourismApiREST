@@ -17,18 +17,16 @@ const UsuarioSchema = Schema({
     img:{
         type: String,
     },
-    /*
     rol:{
         type: String,
         required: true,
         enum: ['ADMIN_ROLE','USER_ROLE']
     },
-    */
-    rol: {
-        type: Schema.Types.ObjectId,
-        ref: 'Role',
-        required: [true, 'El role es obligatorio'],
-    },
+    // rol: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Role',
+    //     required: [true, 'El role es obligatorio'],
+    // },
     estado:{
         type: Boolean,
         default: true

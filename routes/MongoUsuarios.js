@@ -14,7 +14,7 @@ const { usuariosGet,
 const router = Router();
 
 router.get('/',[
-    validarJWT, //Midlleware para el Tokens
+    // validarJWT, //Midlleware para el Tokens
     validarCampos
 ], usuariosGet);
 

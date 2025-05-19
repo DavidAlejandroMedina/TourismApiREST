@@ -82,7 +82,7 @@ class Server {
 
         // Rutas para MongoDB
         this.app.use(this.pathMongo.auth, require('../routes/MongoAuth'));
-        // this.app.use(this.pathMongo.usuarios, require('../routes/MongoUsuarios'));
+        this.app.use(this.pathMongo.usuarios, require('../routes/MongoUsuarios'));
         this.app.use(this.pathMongo.heroes, require('../routes/MongoHeroes'));
         this.app.use(this.pathMongo.peliculas, require('../routes/MongoPeliculas'));
         this.app.use(this.pathMongo.imagenes, require('../routes/MongoImagenes'));
