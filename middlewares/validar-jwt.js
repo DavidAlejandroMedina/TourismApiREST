@@ -109,5 +109,5 @@ const validarJWTMySQL = async (req = request, res = response, next) => {
 
 module.exports = {
     validarJWT,
-    // validarJWTMySQL
+    validarJWTMySQL
 }
