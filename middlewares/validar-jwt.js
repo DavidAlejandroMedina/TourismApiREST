@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { request, response } = require("express");
 
-const Usuario = require('../models/MongoUsuario')
+// const Usuario = require('../models/MongoUsuario')
 const { Usuarios } = require('../models/MySqlUsuarios');
 
 
