@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { request, response } = require("express");
 
-// const Usuario = require('../models/MongoUsuario')
+const Usuario = require('../models/MongoUsuario')
 const { Usuarios } = require('../models/MySqlUsuarios');
 
 
@@ -108,6 +108,6 @@ const validarJWTMySQL = async (req = request, res = response, next) => {
 
 
 module.exports = {
-    // validarJWT,
-    validarJWTMySQL
+    validarJWT,
+    // validarJWTMySQL
 }
