@@ -43,7 +43,7 @@ router.put('/:id',[
 
 // Borrar un Heroe
 router.delete('/:id',[
-    //validarJWT,
+    validarJWT,
     //esAdminRole,
     check('id', 'No es un id de Mongo válido').isMongoId(),
     check('id').custom( existeHeroePorId ),

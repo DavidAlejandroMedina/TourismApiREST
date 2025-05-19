@@ -81,7 +81,7 @@ class Server {
         this.app.use(this.pathMySql.img_peliculas, require('../routes/MySqlImgPeliculas'));
 
         // Rutas para MongoDB
-        // this.app.use(this.pathMongo.auth, require('../routes/MongoAuth'));
+        this.app.use(this.pathMongo.auth, require('../routes/MongoAuth'));
         // this.app.use(this.pathMongo.usuarios, require('../routes/MongoUsuarios'));
         this.app.use(this.pathMongo.heroes, require('../routes/MongoHeroes'));
         this.app.use(this.pathMongo.peliculas, require('../routes/MongoPeliculas'));
