@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const bdmongo = async() => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI,{
+        await mongoose.connect(process.env.MONGODB_CNN, {
             serverSelectionTimeoutMS: 50000 // 50 segundos
         });
         console.log('Conexión exitosa a MongoDB');
