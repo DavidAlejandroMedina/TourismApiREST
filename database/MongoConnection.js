@@ -2,17 +2,13 @@ const mongoose = require('mongoose');
 
 const bdmongo = async() => {
     try {
-        await mongoose.connect(process.env.MONGODB_CNN, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            // useCreateIndex: true
+        await mongoose.connect(process.env.MONGODB_URI,{
+            serverSelectionTimeoutMS: 50000 // 50 segundos
         });
-
-        console.log('Connection OK a MongoDB.');
-
+        console.log('Conexión exitosa a MongoDB');
     } catch (error) {
-        console.log(process.env.MONGODB_CNN);
-        console.error('No se pudo Conectar a la BD MongoDB: ', error);
+        console.error('Error al conectar a MongoDB:', error);
+        throw error; // Asegúrate de relanzar el error para manejarlo en server.js
     }
 }
 
