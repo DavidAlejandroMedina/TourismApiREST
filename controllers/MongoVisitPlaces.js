@@ -84,6 +84,8 @@ const getTopVisitPlacesByCountry = async (req, res = response) => {
                 $group: {
                 _id: "$place._id",
                 name: { $first: "$place.name" },
+                img: { $first: "$place.img" },
+                type: { $first: "$place.type" },
                 visits: { $sum: 1 }
                 }
             },
